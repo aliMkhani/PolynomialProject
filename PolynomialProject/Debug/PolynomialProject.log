@@ -1,0 +1,14 @@
+﻿  PolynomialProject.cpp
+C:\Users\mohammad\source\repos\PolynomialProject\Term.h(271,25): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\mohammad\source\repos\PolynomialProject\Polynomial.h(64,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\mohammad\source\repos\PolynomialProject\Polynomial.h(138,25): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\mohammad\source\repos\PolynomialProject\Polynomial.h(144,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\mohammad\source\repos\PolynomialProject\Polynomial.h(151,18): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\mohammad\source\repos\PolynomialProject\Polynomial.h(156,18): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\mohammad\source\repos\PolynomialProject\Polynomial.h(613,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\mohammad\source\repos\PolynomialProject\Polynomial.h(625,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\mohammad\source\repos\PolynomialProject\Polynomial.h(630,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\mohammad\source\repos\PolynomialProject\Polynomial.h(637,18): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\mohammad\source\repos\PolynomialProject\Polynomial.h(642,18): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\mohammad\source\repos\PolynomialProject\PolynomialProject.cpp(117,39): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  PolynomialProject.vcxproj -> C:\Users\mohammad\source\repos\PolynomialProject\Debug\PolynomialProject.exe
