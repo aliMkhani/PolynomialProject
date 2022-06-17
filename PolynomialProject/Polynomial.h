@@ -3,7 +3,6 @@
 #include <vector>
 #include "Term.h"
 
-
 int GetFirstSignIndex(string poly)
 {
 	int pos = poly.find("+");
@@ -73,6 +72,7 @@ public:
 	void AddTerm(Term term) {
 		terms.push_back(term);
 	}
+	void Sort();
 	Polynomial operator+(Polynomial polynomial);
 	Polynomial operator+(Term term);
 	Polynomial operator+(float x);
@@ -170,6 +170,26 @@ Polynomial::Polynomial()
 Polynomial::~Polynomial()
 {
 }
+void Polynomial::Sort()
+{
+	Term temp;
+	if (termsCount() <= 0)
+	{
+		return;
+	}
+	for (int i = 0;i < termsCount();i++)
+	{
+		for (int j = i + 1;j < termsCount();j++)
+		{
+			if (this->terms[i].GetP() < this->terms[j].GetP())
+			{
+				temp = this->terms[i];
+				this->terms[i] = this->terms[j];
+				this->terms[j] = temp;
+			}
+		}
+	}
+}
 Polynomial Polynomial::operator+(Polynomial b)
 {
 	if (this->terms.size() == 0)
@@ -230,6 +250,7 @@ Polynomial Polynomial::operator+(Polynomial b)
 			polynomial.AddTerm(newTerm);
 		}
 	}
+	polynomial.Sort();
 	return polynomial;
 
 }
@@ -260,6 +281,7 @@ Polynomial Polynomial::operator+(Term term)
 	{
 		polynomial.AddTerm(term);
 	}
+	polynomial.Sort();
 	return polynomial;
 }
 Polynomial Polynomial::operator+(float x)
@@ -289,6 +311,7 @@ Polynomial Polynomial::operator+(float x)
 	{
 		polynomial.AddTerm(Term(x, 0));
 	}
+	polynomial.Sort();
 	return polynomial;
 }
 Polynomial Polynomial::operator-(Polynomial b)
@@ -355,6 +378,7 @@ Polynomial Polynomial::operator-(Polynomial b)
 			polynomial.AddTerm(Term(-1 * newTerm.GetC(), newTerm.GetP()));
 		}
 	}
+	polynomial.Sort();
 	return polynomial;
 }
 Polynomial Polynomial::operator-(Term term)
@@ -384,6 +408,7 @@ Polynomial Polynomial::operator-(Term term)
 	{
 		polynomial.AddTerm(Term(-1 * term.GetC(), term.GetP()));
 	}
+	polynomial.Sort();
 	return polynomial;
 }
 Polynomial Polynomial::operator-(float x)
@@ -413,6 +438,7 @@ Polynomial Polynomial::operator-(float x)
 	{
 		polynomial.AddTerm(Term(-1 * x, 0));
 	}
+	polynomial.Sort();
 	return polynomial;
 }
 Polynomial Polynomial::operator*(Polynomial polynomial)
@@ -427,6 +453,7 @@ Polynomial Polynomial::operator*(Polynomial polynomial)
 			newpolynomial = newpolynomial + newTerm;
 		}
 	}
+	polynomial.Sort();
 	return newpolynomial;
 }
 Polynomial Polynomial::operator*(Term term)
@@ -437,6 +464,7 @@ Polynomial Polynomial::operator*(Term term)
 		Term newTerm = this->terms[i] * term;
 		newpolynomial = newpolynomial + newTerm;
 	}
+	newpolynomial.Sort();
 	return newpolynomial;
 }
 Polynomial Polynomial::operator*(float x)
@@ -447,24 +475,28 @@ Polynomial Polynomial::operator*(float x)
 		Term newTerm = this->terms[i] * x;
 		newpolynomial = newpolynomial + newTerm;
 	}
+	newpolynomial.Sort();
 	return newpolynomial;
 }
 void Polynomial::operator+=(Polynomial polynomial)
 {
 	*this = *this + polynomial;
+	Sort();
 }
 void Polynomial::operator-=(Polynomial polynomial)
 {
 	*this = *this - polynomial;
-
+	Sort();
 }
 void Polynomial::operator*=(Polynomial polynomial)
 {
 	*this = *this * polynomial;
+	Sort();
 }
 void Polynomial::operator=(Polynomial polynomial)
 {
 	this->terms = polynomial.terms;
+	Sort();
 }
 bool Polynomial::operator>(Polynomial polynomial)
 {

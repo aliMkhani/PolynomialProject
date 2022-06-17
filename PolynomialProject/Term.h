@@ -135,9 +135,9 @@ Term Term::operator/(Term term)
 }
 Term Term::operator/(float x)
 {
-	if (x <= 0)
+	if (x == 0)
 	{
-		throw invalid_argument("the coef can't be <= 0");
+		throw invalid_argument("the coef can't be == 0");
 	}
 	return Term(this->c / x, this->p);
 }
@@ -296,4 +296,3 @@ string Term::ToString()
 	}
 	return term;
 }
-
